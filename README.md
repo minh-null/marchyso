@@ -1,3 +1,2 @@
 # dot-and-dot
-My dotfiles
-Yes :3
+My dotfiles. Yes :3
