@@ -63,24 +63,35 @@ window#waybar.hidden {
 }
 
 #clock {
-  background: #ABE9B3;
+background: linear-gradient(135deg, #bd93f9, #7aa2f7);
+color: #0f0f14;
 }
 
 #cpu {
-  background: #96CDFB;
+background: linear-gradient(135deg, #b8c0ff, #cdb4ff);
+border-radius: 10px 0 0 10px;
 }
 
+/* Middle segments */
 #memory {
-  background: #DDB6F2;
+background: linear-gradient(135deg, #cdb4ff, #ffc8dd);
+border-radius: 0;
 }
-
 #disk {
-  background: #F5C2E7;
+background: linear-gradient(135deg, #cdb4ff, #ffc8dd);
+border-radius: 0;
 }
 
+/* Right rounded edge */
 #temperature {
-  background: #F8BD96;
+background: linear-gradient(135deg, #b8c0ff, #cdb4ff);
+border-radius: 0 10px 10px 0;
 }
+
+#cpu, #memory, #clock, #disk {
+box-shadow: 0 0 10px rgba(180,160,255,0.45);
+}
+
 
 /* Modules center */
 #workspaces {
@@ -136,24 +147,23 @@ window#waybar.hidden {
 }
 
 #idle_inhibitor {
-  background: #B5E8E0;
+  background: linear-gradient(135deg, #bd93f9, #7aa2f7);
   padding-right: 15px;
 }
 
 #pulseaudio {
   min-width: 55px;
-  color: #1A1826;
-  background: #F5E0DC;
+  color: #0f0f14;
+  background: #b8c0ff;
 }
 
 #pulseaudio-slider {
-  color: #1A1826;
-  background: #E8A2AF;
+  color: #b8c0ff;
+  background: linear-gradient(135deg, #bd93f9, #7aa2f7);
   min-width: 50px;
 }
 
 #pulseaudio-slider slider {}
-
 
 #network {
   background: #CBA6F7;
@@ -161,7 +171,7 @@ window#waybar.hidden {
 }
 
 #language {
-  background: #A6E3A1;
+  background: #C8B6FF;
   padding-right: 15px;
 }
 
