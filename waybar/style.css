@@ -74,7 +74,7 @@ border-radius: 10px 0 0 10px;
 
 /* Middle segments */
 #memory {
-background: linear-gradient(135deg, #cdb4ff, #ffc8dd);
+background: linear-gradient(135deg, #b8c0ff, #cdb4ff);
 border-radius: 0;
 }
 #disk {
@@ -84,7 +84,7 @@ border-radius: 0;
 
 /* Right rounded edge */
 #temperature {
-background: linear-gradient(135deg, #b8c0ff, #cdb4ff);
+background: linear-gradient(135deg, #ffc8dd, #ffb4a2);
 border-radius: 0 10px 10px 0;
 }
 
@@ -154,7 +154,7 @@ box-shadow: 0 0 10px rgba(180,160,255,0.45);
 #pulseaudio {
   min-width: 55px;
   color: #0f0f14;
-  background: #b8c0ff;
+  background: linear-gradient(135deg, #bd93f9, #7aa2f7);
 }
 
 #pulseaudio-slider {
@@ -166,7 +166,7 @@ box-shadow: 0 0 10px rgba(180,160,255,0.45);
 #pulseaudio-slider slider {}
 
 #network {
-  background: #CBA6F7;
+  background: linear-gradient(135deg, #bd93f9, #7aa2f7);;
   padding-right: 13px;
 }
 
