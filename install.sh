@@ -23,3 +23,4 @@ cp "$wd"/fastetch /home/"$username"/.config
 cp "$wd"/waybar /home/"$username"/.config
 cp "$wd"/wofi /home/"$username"/.config
 cp "$wd"/wofi-power /home/"$username"/.local/bin
+cp "$wd"/emoji-picker /home/"$username"/.local/bin
