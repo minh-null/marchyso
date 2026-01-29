@@ -22,3 +22,4 @@ cp "$wd"/cava /home/"$username"/.config
 cp "$wd"/fastetch /home/"$username"/.config
 cp "$wd"/waybar /home/"$username"/.config
 cp "$wd"/wofi /home/"$username"/.config
+cp "$wd"/wofi-power /home/"$username"/.local/bin
