@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-choice=$(printf "Shutdown\nReboot\nSleep (Screen Off)" | wofi --dmenu --prompt "Power")
+choice=$(printf "Shutdown\nReboot\nLogout" | wofi --dmenu --prompt "Power")
 
 case "$choice" in
   Shutdown)
@@ -9,15 +9,7 @@ case "$choice" in
   Reboot)
     systemctl reboot
     ;;
-  "Sleep (Screen Off)")
-    # Turn off displays without suspending
-    if command -v hyprctl >/dev/null 2>&1; then
-        hyprctl dispatch dpms off
-    elif command -v swaymsg >/dev/null 2>&1; then
-        swaymsg "output * dpms off"
-    else
-        # Fallback (works on many setups)
-        loginctl lock-session
-    fi
+  "Logout")
+    hyprctl dispatch exit
     ;;
 esac
