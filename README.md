@@ -4,12 +4,13 @@
 ## Infomations
 
 <details>
-  <summary><strong>Installation </strong></summary>
+  <summary><strong>Installation</strong></summary>
 
   - Run `git clone --depth=1 https://github.com/minh-null/dot-and-dot.git`
-    - Then, go into this repo by using `cd dot-and-dot` and run `./setup install`
-    - Turn the `install.sh` into an executable by using `chmod +x install.sh`
+    - Then go into this repo using `cd dot-and-dot` and run `./setup install`
+    - Turn `install.sh` into an executable using `chmod +x install.sh`
     - Run the script `./install.sh`
+
 </details>
 
 <details>
@@ -18,40 +19,40 @@
   <details>
     <summary>Terminal / CLI Tools</summary>
 
-- [Kitty](https://github.com/kovidgoyal/kitty)
-- [Cava](https://github.com/karlstav/cava)
-- [Asciiquarium](https://github.com/cmatsuoka/asciiquarium)
-- [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
-- [Hyfetch](https://github.com/hykilpikonna/hyfetch)
-- [Zsh](https://github.com/zsh-users/zsh)
-- [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
-- [btop](https://github.com/aristocratos/btop)
-- [Momoisay](https://github.com/Momo-Softworks/momoisay)
-- [Cowsay](https://github.com/cowsay-org/cowsay)
-- [Fortune (fortune-mod)](https://github.com/shlomif/fortune-mod)
+  - [Kitty](https://github.com/kovidgoyal/kitty)
+  - [Cava](https://github.com/karlstav/cava)
+  - [Asciiquarium](https://github.com/cmatsuoka/asciiquarium)
+  - [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
+  - [Hyfetch](https://github.com/hykilpikonna/hyfetch)
+  - [Zsh](https://github.com/zsh-users/zsh)
+  - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+  - [btop](https://github.com/aristocratos/btop)
+  - [Momoisay](https://github.com/Momo-Softworks/momoisay)
+  - [Cowsay](https://github.com/cowsay-org/cowsay)
+  - [Fortune (fortune-mod)](https://github.com/shlomif/fortune-mod)
 
   </details>
 
   <details>
     <summary>File Managers</summary>
 
-- [PCManFM](https://github.com/lxde/pcmanfm)
-- [Dolphin](https://github.com/KDE/dolphin)
+  - [PCManFM](https://github.com/lxde/pcmanfm)
+  - [Dolphin](https://github.com/KDE/dolphin)
 
   </details>
 
   <details>
     <summary>Status Bar</summary>
 
-- [Waybar](https://github.com/Alexays/Waybar)
+  - [Waybar](https://github.com/Alexays/Waybar)
 
   </details>
 
   <details>
     <summary>Lock Screen + Session Manager</summary>
 
-- [Hyprlock](https://github.com/hyprwm/hyprlock)
-- [SDDM](https://github.com/sddm/sddm)
+  - [Hyprlock](https://github.com/hyprwm/hyprlock)
+  - [SDDM](https://github.com/sddm/sddm)
 
   </details>
 
