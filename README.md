@@ -60,7 +60,7 @@
 ## Image/Media
 
 ![](/assets/rice.png)
-![](/assets/rice.mp4)
+![](/assets/rice.gif)
 
 ## File structure
 ```
