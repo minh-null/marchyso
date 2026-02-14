@@ -112,6 +112,7 @@ alias checkdir="ncdu / --exclude /media --exclude /run/timeshift"
 alias dinosay="cowsay -f stegosaurus"
 alias cowsay='cowsay -f $(ls /usr/share/cowsay/cows | shuf -n1 | sed s/.cow//)'
 alias moztestka="Moztestka"
+alias clean_up="sudo pacman -Scc && yay -Scc && flatpak remove --unused"
 
 # Created by `pipx` on 2026-01-09 14:53:40
 export PATH="$PATH:/home/minh_lol/.local/bin"
