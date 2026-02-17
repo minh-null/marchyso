@@ -3,7 +3,7 @@
 username=$(whoami)
 wd=$(pwd)
 
-sudo pacman -S --needed nodejs npm electron fastftech hyprland cava waybar wofi fastfetch hyprpaper rofi-emoji papirus-icon-theme archlinux-xdg-menu
+sudo pacman -S --needed nodejs npm electron fastftech hyprland cava waybar wofi cliphist wl-clipboard fastfetch hyprpaper rofi-emoji papirus-icon-theme archlinux-xdg-menu
 XDG_MENU_PREFIX=arch- kbuildsycoca6
 
 rm -rf /home/"$username"/.config/cava/
