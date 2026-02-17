@@ -29,7 +29,7 @@
   /* === Modules Left === */
   "custom/archicon": {
     "format": "",
-    "on-click": "wofi --show drun --allow-images --show-icons --prompt \"Search something . . .\"",
+    "on-click": "wofi-launcher",
     "tooltip": true,
     "tooltip-format": "Arch BTW",
   },

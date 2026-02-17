@@ -2,13 +2,15 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
+username=$(whoami)
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME=""
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -115,8 +117,9 @@ alias moztestka="Moztestka"
 alias clean_up="sudo pacman -Scc && yay -Scc && flatpak remove --unused"
 
 # Created by `pipx` on 2026-01-09 14:53:40
-export PATH="$PATH:/home/minh_lol/.local/bin"
+export PATH="$PATH:/home/"$username"/.local/bin"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if [[ -o interactive ]]; then
   fortune | dinosay
 fi
+eval "$(oh-my-posh init zsh --config /home/"$username"/.cache/oh-my-posh/themes/catppuccin.omp.json)"
