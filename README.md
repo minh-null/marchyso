@@ -62,7 +62,7 @@
 
 ![](/assets/rice.jpg)
 ![](/assets/rice2.jpg)
-[![Rice Demo](assets/rice.jpg)](assets/rice.webm)
+[![Rice Demo](assets/rice.jpg)](https://www.youtube.com/watch?v=9dOZI6I17n8&autoplay=1)
 
 ## File structure
 ```
