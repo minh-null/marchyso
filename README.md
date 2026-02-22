@@ -68,54 +68,86 @@
 
 ## File structure
 ```
-dot-and-dot/
-├── assets/
-│   ├── rice.mp4
-│   └── rice.png
-├── config/
-│   ├── cava/
-|   |    ├── shaders/
-|   |    |    ├── bar_spectrum.frag
-|   |    |    ├── eye_of_phi.frag
-|   |    |    ├── northern_lights.frag
-|   |    |    ├── pass_through.vert
-|   |    |    ├── spectrogram.frag
-|   |    |    └── winamp_line_style_spectrum.fraq
-|   |    ├── themes/
-|   |    |    ├── solarized_dark.txt
-|   |    |    └── tricolor.txt
-|   |    └── config.txt
-│   ├── fastfetch/
-|   |        └── config.jsonc
-│   ├── hypr/
-|   |        ├── hyprlock/
-|   |        |   ├── colors.conf
-|   |        |   ├── check-capslock.sh
-|   |        |   └── status.sh
-|   |        ├── hyprpaper
-|   |        ├── hyprland.conf
-|   |        └── hyprlock.conf
-│   ├── kitty/
-|   |        └── kitty.conf
-│   ├── waybar/
-|   |        ├── style.css
-|   |        └── config.jsonc
-│   ├── hyfetch.jsonc
-│   └── wofi/
-|            ├── style.css
-|            └── config    
-├── local-bin/
-│   ├── emoji-picker.sh
-│   ├── wofi-launcher
-|   └── wofi-power.sh
-├── wallpapers/
-│   ├── purple.jpeg
-│   ├── 6418406.jpg
-│   ├── macos-monterey-wwdc-21-stock-dark-mode-5k-3840x2160-5585.jpg
-|   └── win11-violet.jpg
-├── .zshrc
+marchyso
+├── assets
+│   ├── rice2.jpg
+│   ├── rice.gif
+│   └── rice.jpg
+├── config
+│   ├── cava
+│   │   ├── config
+│   │   ├── shaders
+│   │   │   ├── bar_spectrum.frag
+│   │   │   ├── eye_of_phi.frag
+│   │   │   ├── northern_lights.frag
+│   │   │   ├── pass_through.vert
+│   │   │   ├── spectrogram.frag
+│   │   │   └── winamp_line_style_spectrum.frag
+│   │   └── themes
+│   │       ├── solarized_dark
+│   │       └── tricolor
+│   ├── fastfetch
+│   │   └── config.jsonc
+│   ├── hyfetch.json
+│   ├── hypr
+│   │   ├── avatar.png
+│   │   ├── Fonts
+│   │   │   ├── JetBrains
+│   │   │   │   └── JetBrains Mono Nerd.ttf
+│   │   │   └── SF Pro Display
+│   │   │       ├── SF Pro Display Bold.otf
+│   │   │       └── SF Pro Display Regular.otf
+│   │   ├── hyprland.conf
+│   │   ├── hyprlock.conf
+│   │   ├── hyprlock.png
+│   │   ├── hyprpaper.conf
+│   │   ├── hyprsettings.toml
+│   │   ├── monitors.conf
+│   │   └── Scripts
+│   │       └── songdetail.sh
+│   ├── hyprwave
+│   │   ├── config.conf
+│   │   └── style.css
+│   ├── minh_lol_custom_design.omp.json
+│   ├── swaync
+│   │   ├── config.json
+│   │   └── style.css
+│   ├── waybar
+│   │   ├── config.jsonc
+│   │   └── style.css
+│   └── wofi
+│       ├── config
+│       ├── style.css
+│       └── style-keybinds.css
+├── install.sh
+├── local-bin
+│   ├── emoji-picker
+│   ├── oh-my-posh
+│   ├── wofi-keybinds
+│   ├── wofi-launcher
+│   └── wofi-power
+├── pixie-sddm
+│   ├── assets
+│   │   ├── avatar.jpg
+│   │   ├── background.jpg
+│   │   └── fonts
+│   │       ├── FlexRounded-B.ttf
+│   │       ├── FlexRounded-M.ttf
+│   │       └── FlexRounded-R.ttf
+│   ├── components
+│   │   ├── Clock.qml
+│   │   └── PowerBar.qml
+│   ├── install.sh
+│   ├── LICENSE
+│   ├── Main.qml
+│   ├── metadata.desktop
+│   └── theme.conf
 ├── README.md
-└── install.sh
+└── wallpapers
+    ├── 6418406.jpg
+    ├── macos-monterey-wwdc-21-stock-dark-mode-5k-3840x2160-5585.jpg
+    ├── purple.jpeg
+    └── win11-violet.jpg
 ```
 
 ## Link to the animated thing
