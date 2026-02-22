@@ -62,9 +62,7 @@
 
 ![](/assets/rice.jpg)
 ![](/assets/rice2.jpg)
-<div align="center">
-  <video src="/assets/rice.webm" width="100%" controls></video>
-</div>
+[![Rice Demo](assets/rice.jpg)](assets/rice.webm)
 
 ## File structure
 ```
