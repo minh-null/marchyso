@@ -1,34 +1,83 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-username=$(whoami)
-wd=$(pwd)
+USER_NAME="$(whoami)"
+HOME_DIR="$HOME"
+SCRIPT_DIR="$(pwd)"
+BACKUP_DIR="$HOME_DIR/backup_$(date +%Y%m%d_%H%M%S)"
 
-sudo pacman -Syyu && yay -Syyu
-sudo pacman -S --needed nodejs npm electron fastftech hyprland cava waybar wofi cliphist wl-clipboard fastfetch hyprpaper rofi-emoji papirus-icon-theme archlinux-xdg-menu zsh orbit-wifi qt6-declarative qt6-svg qt6-quickcontrols2 qt5-graphicaleffects qt5-quickcontrols2
-XDG_MENU_PREFIX=arch- kbuildsycoca6
+CONFIG_DIRS=(cava hypr waybar fastfetch wofi)
 
-cp -r /home/"$username"/.config/cava/ /home/"$username"/backup
-cp -r /home/"$username"/.config/hypr/ /home/"$username"/backup
-cp -r /home/"$username"/.config/waybar/ /home/"$username"/backup
-cp -r /home/"$username"/.config/fastfetch /home/"$username"/backup
-cp -r /home/"$username"/.config/wofi /home/"$username"/backup
+PACKAGES=(
+  nodejs npm electron
+  hyprland cava waybar wofi cliphist wl-clipboard fastfetch hyprpaper
+  rofi-emoji papirus-icon-theme archlinux-xdg-menu zsh orbit-wifi
+  qt6-declarative qt6-svg qt6-quickcontrols2
+  qt5-graphicaleffects qt5-quickcontrols2
+)
 
-rm -rf /home/"$username"/.config/cava/
-rm -rf /home/"$username"/.config/hypr/
-rm -rf /home/"$username"/.config/waybar/
-rm -rf /home/"$username"/.config/fastfetch
-rm -rf /home/"$username"/.config/wofi
+echo "Updating system..."
+sudo pacman -Syu --needed
 
-mkdir /home/"$username"/Pictures/Wallpapers
-cp "$wd"/wallpapers/* /home/"$username"/Pictures/Wallpapers
+if command -v yay &>/dev/null; then
+  yay -Syu --needed
+fi
 
-cp "$wd"/config/* /home/"$username"/.config
-cp "$wd"/local-bin /home/"$username"/.local/bin
-cp "$wd"/.zshrc /home/"$username"
-cp "$wd"/config/minh_lol_custom_design.omp.json /home/"$username"/.cache/oh-my-posh/themes
+echo "Installing packages..."
+sudo pacman -S --needed "${PACKAGES[@]}"
 
-curl -s https://ohmyposh.dev/install.sh | bash -s
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+XDG_MENU_PREFIX=arch- kbuildsycoca6 || true
 
-cd /home/"$username"/pixie-sddm
-sudo ./install.sh
+echo "Creating backup at $BACKUP_DIR"
+mkdir -p "$BACKUP_DIR"
+
+for dir in "${CONFIG_DIRS[@]}"; do
+  if [[ -d "$HOME_DIR/.config/$dir" ]]; then
+    cp -r "$HOME_DIR/.config/$dir" "$BACKUP_DIR/"
+  fi
+done
+
+echo "Replacing configs..."
+for dir in "${CONFIG_DIRS[@]}"; do
+  rm -rf "$HOME_DIR/.config/$dir"
+done
+
+mkdir -p "$HOME_DIR/.config"
+cp -r "$SCRIPT_DIR/config/"* "$HOME_DIR/.config/"
+
+mkdir -p "$HOME_DIR/Pictures/Wallpapers"
+cp -r "$SCRIPT_DIR/wallpapers/"* "$HOME_DIR/Pictures/Wallpapers/" 2>/dev/null || true
+
+
+mkdir -p "$HOME_DIR/.local/bin"
+cp -r "$SCRIPT_DIR/local-bin/"* "$HOME_DIR/.local/bin/" 2>/dev/null || true
+chmod +x $HOME_DIR/.local/bin/emoji-picker
+chmod +x $HOME_DIR/.local/bin/screensaver
+chmod +x $HOME_DIR/.local/bin/screensaver-bounce
+chmod +x $HOME_DIR/.local/bin/wofi-keybinds
+chmod +x $HOME_DIR/.local/bin/wofi-launcher
+chmod +x $HOME_DIR/.local/bin/wofi-power
+
+install -m 644 "$SCRIPT_DIR/.zshrc" "$HOME_DIR/.zshrc"
+
+mkdir -p "$HOME_DIR/.cache/oh-my-posh/themes"
+cp "$SCRIPT_DIR/config/minh_lol_custom_design.omp.json" \
+   "$HOME_DIR/.cache/oh-my-posh/themes/"
+
+
+if ! command -v oh-my-posh &>/dev/null; then
+  curl -s https://ohmyposh.dev/install.sh | bash -s
+fi
+
+
+if [[ ! -d "$HOME_DIR/.oh-my-zsh" ]]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+
+if [[ -d "$HOME_DIR/pixie-sddm" ]]; then
+  cd "$HOME_DIR/pixie-sddm"
+  sudo ./install.sh
+fi
+
+echo "Done!"

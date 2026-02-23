@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+
+logo_file="$HOME/.local/bin/marchyso_logo.txt"
+
+mapfile -t raw_logo < "$logo_file"
+
+# --- shrink horizontally ---
+logo=()
+for line in "${raw_logo[@]}"; do
+    small=""
+    for ((i=0; i<${#line}; i+=2)); do
+        small+="${line:$i:1}"
+    done
+    logo+=("$small")
+done
+
+logo_height=${#logo[@]}
+logo_width=0
+for line in "${logo[@]}"; do
+    (( ${#line} > logo_width )) && logo_width=${#line}
+done
+
+tput civis
+trap 'tput cnorm; printf "\e[0m"; clear; exit' INT TERM
+
+printf "\033[2J"
+
+x=5
+y=3
+dx=1
+dy=1
+
+prev_x=$x
+prev_y=$y
+
+print_gradient_line() {
+    local line="$1"
+    local r1=$2 g1=$3 b1=$4
+    local r2=$5 g2=$6 b2=$7
+
+    local length=${#line}
+
+    # Prevent division by zero
+    if (( length <= 1 )); then
+        printf "%s" "$line"
+        return
+    fi
+
+    for ((i=0; i<length; i++)); do
+        char="${line:$i:1}"
+
+        r=$(( r1 + (r2 - r1) * i / (length - 1) ))
+        g=$(( g1 + (g2 - g1) * i / (length - 1) ))
+        b=$(( b1 + (b2 - b1) * i / (length - 1) ))
+
+        printf "\e[38;2;%d;%d;%dm%s" "$r" "$g" "$b" "$char"
+    done
+}
+
+while true; do
+    read -r rows cols < <(stty size)
+
+    max_x=$(( cols - logo_width ))
+    max_y=$(( rows - logo_height ))
+
+    # Prevent negative bounds
+    (( max_x < 1 )) && max_x=1
+    (( max_y < 1 )) && max_y=1
+
+    # --- erase previous frame ---
+    for ((i=0; i<logo_height; i++)); do
+        printf "\033[%d;%dH%*s" $((prev_y+i)) "$prev_x" "$logo_width" ""
+    done
+
+    # --- draw new frame ---
+    for i in "${!logo[@]}"; do
+        printf "\033[%d;%dH" $((y+i)) "$x"
+
+        line="${logo[$i]}"
+
+        if [[ "$line" == *"████████"* ]]; then
+            print_gradient_line "$line" 189 147 249 122 162 247
+        else
+            print_gradient_line "$line" 0 0 128 0 255 255
+        fi
+    done
+
+    printf "\e[0m"
+
+    prev_x=$x
+    prev_y=$y
+
+    ((x+=dx))
+    ((y+=dy))
+
+    (( x<=1 || x>=max_x )) && dx=$(( -dx ))
+    (( y<=1 || y>=max_y )) && dy=$(( -dy ))
+
+    sleep 0.016
+done

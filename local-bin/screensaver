@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+killall -SIGUSR1 waybar   # hide
+
+kitty --class screensaver -e /home/minh_lol/.local/bin/screensaver-bounce
+
+killall -SIGUSR1 waybar   # show
