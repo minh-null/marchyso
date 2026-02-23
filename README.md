@@ -70,7 +70,8 @@ marchyso
 ├── assets
 │   ├── rice2.jpg
 │   ├── rice.gif
-│   └── rice.jpg
+│   ├── rice.jpg
+│   └── rice.webm
 ├── config
 │   ├── cava
 │   │   ├── config
@@ -120,7 +121,10 @@ marchyso
 ├── install.sh
 ├── local-bin
 │   ├── emoji-picker
+│   ├── marchyso_logo.txt
 │   ├── oh-my-posh
+│   ├── screensaver
+│   ├── screensaver-bounce
 │   ├── wofi-keybinds
 │   ├── wofi-launcher
 │   └── wofi-power
