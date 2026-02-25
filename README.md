@@ -59,7 +59,14 @@
 </details>
 
 ## Image/Media
-
+![](/assets/login.jpg)
+![](/assets/login1.jpg)
+![](/assets/lock.jpg)
+![](/assets/rice0.jpg)
+![](/assets/rice.jpg)
+![](/assets/rice1.jpg)
+![](/assets/rice2.jpg)
+[![Rice Demo](assets/rice2.jpg)]([https://www.youtube.com/watch?v=9dOZI6I17n8&autoplay=1](https://youtu.be/PLaNDeCnt1Q?si=qUmpJgL-w8ebX4vH))
 ## File structure
 ```
 marchyso
