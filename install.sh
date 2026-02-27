@@ -8,12 +8,19 @@ BACKUP_DIR="$HOME_DIR/backup_$(date +%Y%m%d_%H%M%S)"
 
 CONFIG_DIRS=(cava hypr waybar fastfetch wofi)
 
-PACKAGES=(
+OFFICIAL_PACKAGES=(
   # Core
   nodejs npm zsh git curl rsync cmake
   
-  # Wayland / Hyprland stack
+  # Hyprland / Wayland Core
   hyprland hyprpaper waybar wofi cliphist wl-clipboard cava
+  xdg-desktop-portal-hyprland xdg-user-dirs
+  polkit-gnome
+  pipewire wireplumber
+  grim slurp swappy
+  brightnessctl
+  network-manager-applet
+  bluez bluez-utils blueman
   papirus-icon-theme orbit-wifi
   
   # Qt
@@ -21,7 +28,7 @@ PACKAGES=(
   qt5-graphicaleffects qt5-quickcontrols2
   
   # Terminal & Dev
-  kitty neovim kate vscodium-bin python bat btop ncdu fastfetch
+  kitty neovim kate python bat btop ncdu fastfetch
   
   # Browsers
   firefox chromium
@@ -29,30 +36,36 @@ PACKAGES=(
   # Media
   vlc mpv audacity kdenlive obs-studio okular
   
-  # System tools
+  # System Tools
   gparted timeshift kdeconnect openrgb
   
-  # Networking
-  proton-vpn-gtk-app localsend-bin
-  
-  # Gaming
-  lutris protonup-qt-bin qbittorrent
-  
-  # Electron apps
+  # Networking / Apps
+  proton-vpn-gtk-app
+  lutris qbittorrent
+)
+
+AUR_PACKAGES=(
   vesktop-bin
+  vscodium-bin
+  localsend-bin
+  protonup-qt-bin
 )
 
 echo "Updating system..."
 sudo pacman -Syu --needed
 
+sudo pacman -S --needed "${OFFICIAL_PACKAGES[@]}"
+
 if command -v yay &>/dev/null; then
-  yay -Syu --needed
+  yay -S --needed "${AUR_PACKAGES[@]}"
+else
+  echo "AUR helper not found. Skipping AUR packages."
 fi
 
-echo "Installing packages..."
-sudo pacman -S --needed "${PACKAGES[@]}"
-
 XDG_MENU_PREFIX=arch- kbuildsycoca6 || true
+sudo systemctl enable NetworkManager
+sudo systemctl enable bluetooth
+systemctl --user enable wireplumber
 
 echo "Creating backup at $BACKUP_DIR"
 mkdir -p "$BACKUP_DIR"
