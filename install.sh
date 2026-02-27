@@ -110,9 +110,14 @@ fi
 
 
 if [[ ! -d "$HOME_DIR/.oh-my-zsh" ]]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "Installing Oh My Zsh..."
+  if curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | \
+     RUNZSH=no CHSH=no sh; then
+    echo "Oh My Zsh installed."
+  else
+    echo "Failed to install Oh My Zsh. Continuing..."
+  fi
 fi
-
 
 if [[ -d "$HOME_DIR/pixie-sddm" ]]; then
   cd "$HOME_DIR/pixie-sddm"
