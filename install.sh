@@ -9,11 +9,37 @@ BACKUP_DIR="$HOME_DIR/backup_$(date +%Y%m%d_%H%M%S)"
 CONFIG_DIRS=(cava hypr waybar fastfetch wofi)
 
 PACKAGES=(
-  nodejs npm electron
-  hyprland cava waybar wofi cliphist wl-clipboard fastfetch hyprpaper
-  rofi-emoji papirus-icon-theme archlinux-xdg-menu zsh orbit-wifi
+  # Core
+  nodejs npm zsh git curl rsync cmake
+  
+  # Wayland / Hyprland stack
+  hyprland hyprpaper waybar wofi cliphist wl-clipboard cava
+  papirus-icon-theme orbit-wifi
+  
+  # Qt
   qt6-declarative qt6-svg qt6-quickcontrols2
   qt5-graphicaleffects qt5-quickcontrols2
+  
+  # Terminal & Dev
+  kitty neovim kate vscodium-bin python bat btop ncdu fastfetch
+  
+  # Browsers
+  firefox chromium
+  
+  # Media
+  vlc mpv audacity kdenlive obs-studio okular
+  
+  # System tools
+  gparted timeshift kdeconnect openrgb
+  
+  # Networking
+  proton-vpn-gtk-app localsend-bin
+  
+  # Gaming
+  lutris protonup-qt-bin qbittorrent
+  
+  # Electron apps
+  vesktop-bin
 )
 
 echo "Updating system..."
